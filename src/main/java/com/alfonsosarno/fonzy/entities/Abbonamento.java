@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -13,7 +12,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Subscription {
+public class Abbonamento {
 
     @Id
     @GeneratedValue
@@ -29,7 +28,7 @@ public class Subscription {
     @ManyToOne
     private User user;
 
-    public Subscription(String nomeAbbonamento, double prezzo, frequenza frequenza, String categoria, LocalDate dataRinnovo) {
+    public Abbonamento(String nomeAbbonamento, double prezzo, frequenza frequenza, String categoria, LocalDate dataRinnovo) {
         this.nomeAbbonamento = nomeAbbonamento;
         this.prezzo = prezzo;
         this.frequenza = frequenza;
