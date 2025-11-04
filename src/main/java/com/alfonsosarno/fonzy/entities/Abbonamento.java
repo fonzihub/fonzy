@@ -17,7 +17,7 @@ public class Abbonamento {
     @Id
     @GeneratedValue
     @Setter(AccessLevel.NONE)
-    private UUID idSubscription;
+    private UUID idAbbonamento;
     private String nomeAbbonamento;
     private double prezzo;
     @Enumerated(EnumType.STRING)
