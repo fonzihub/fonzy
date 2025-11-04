@@ -28,6 +28,11 @@ public class Abbonamento {
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    private AbbonamentoCatalogo catalogo;
+
+
+
     public Abbonamento(String nomeAbbonamento, double prezzo, frequenza frequenza, String categoria, LocalDate dataRinnovo) {
         this.nomeAbbonamento = nomeAbbonamento;
         this.prezzo = prezzo;

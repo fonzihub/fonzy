@@ -1,9 +1,6 @@
 package com.alfonsosarno.fonzy.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
@@ -19,15 +16,16 @@ public class User {
     @GeneratedValue
     @Setter(AccessLevel.NONE)
     private UUID idUser;
-    private String nome;
-    private String cognome;
+    @Column(nullable = false, unique = true)
+    private String username;
+    @Column(nullable = false, unique = true)
     private String email;
+    @Column(nullable = false)
     private String password;
     private ruolo ruolo;
 
-    public User(String nome, String cognome, String email, String password, ruolo ruolo) {
-        this.nome = nome;
-        this.cognome = cognome;
+    public User(String username, String email, String password, ruolo ruolo) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.ruolo = ruolo;
