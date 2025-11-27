@@ -9,7 +9,6 @@ import io.jsonwebtoken.security.Keys;
 
 import java.util.Date;
 import java.util.UUID;
-import java.util.stream.DoubleStream;
 
 @Component
 
@@ -23,7 +22,7 @@ public class JWTTools {
     public String createToken(User user) {
 
         return Jwts.builder()
-//               data emissione toke
+//               data emissione token
                 .issuedAt(new Date(System.currentTimeMillis()))
 //               data scadenza token
                 .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 7))
