@@ -5,9 +5,10 @@ import com.alfonsosarno.fonzy.entities.frequenza;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public record NewAbbonamentoRequestDTO(UUID userId,
-                                       Long catalogId,
-                                       double price,
+public record NewAbbonamentoRequestDTO(String nomeAbbonamento,
+                                       Double prezzo,
                                        LocalDate dataRinnovo,
-                                       frequenza frequenza) {
+                                       String categoria,
+                                       frequenza frequenza,
+                                       String logoUrl) {
 }
