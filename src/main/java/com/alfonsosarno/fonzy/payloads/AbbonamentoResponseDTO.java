@@ -6,9 +6,13 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public record AbbonamentoResponseDTO(UUID id,
-                                     String serviceName,
-                                     String categoryName,
-                                     double price,
+                                     String nomeAbbonamento,
+                                     Double prezzo,
                                      LocalDate dataRinnovo,
-                                     frequenza frequenza) {
+                                     frequenza frequenza,
+                                     String categoria,
+                                     String logoUrl
+
+
+) {
 }
