@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,10 +21,12 @@ import java.util.UUID;
 
 @Component
 public class JWTFilter extends OncePerRequestFilter {
+
     @Autowired
     private JWTTools jwtTools;
     @Autowired
     private UserService userService;
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -59,4 +62,7 @@ jwtTools.verifyToken(accessToken);
         protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
             return new AntPathMatcher().match("/auth/**", request.getServletPath());
         }
+
+
+
 }
