@@ -1,5 +1,6 @@
 package com.alfonsosarno.fonzy.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,32 +13,38 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @ToString
+@JsonIgnoreProperties({"user"})
 public class Abbonamento {
 
     @Id
     @GeneratedValue
     @Setter(AccessLevel.NONE)
+    @Column(name = "id_subscription")
     private UUID idAbbonamento;
     private String nomeAbbonamento;
-    private double prezzo;
+    private Double prezzo;
     @Enumerated(EnumType.STRING)
     private frequenza frequenza;
     private String categoria;
     private LocalDate dataRinnovo;
+    private String logoUrl;
 
     @ManyToOne
     private User user;
 
-    @ManyToOne
-    private AbbonamentoCatalogo catalogo;
+//    @ManyToOne
+//    private Catalogo catalogo;
 
 
 
-    public Abbonamento(String nomeAbbonamento, double prezzo, frequenza frequenza, String categoria, LocalDate dataRinnovo) {
+    public Abbonamento(String nomeAbbonamento, Double prezzo, frequenza frequenza, String categoria, LocalDate dataRinnovo) {
         this.nomeAbbonamento = nomeAbbonamento;
         this.prezzo = prezzo;
         this.frequenza = frequenza;
         this.categoria = categoria;
         this.dataRinnovo = dataRinnovo;
     }
+
+
+
 }
