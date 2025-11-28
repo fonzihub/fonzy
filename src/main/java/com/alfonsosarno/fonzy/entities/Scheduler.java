@@ -12,7 +12,7 @@ public class Scheduler {
         this.abbonamentoService = abbonamentoService;
     }
 
-    @Scheduled(cron = "0 0 9 * * ?") // ogni giorno alle 9:00
+    @Scheduled(cron = "0 0 9 * * ?")
     public void controllaAbbonamentiInScadenza() {
         abbonamentoService.inviaEmailScadenzaAbbonamenti();
     }

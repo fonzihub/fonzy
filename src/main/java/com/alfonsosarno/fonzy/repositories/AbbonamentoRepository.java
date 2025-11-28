@@ -13,5 +13,5 @@ import java.util.UUID;
 public interface AbbonamentoRepository extends JpaRepository<Abbonamento, UUID> {
     List<Abbonamento> findByDataRinnovoBetween(LocalDate start, LocalDate end);
     List<Abbonamento> findByUser(User user);
-    List<Abbonamento> findByDataScadenza(LocalDate data);
+    List<Abbonamento> findByDataRinnovo(LocalDate data);
 }

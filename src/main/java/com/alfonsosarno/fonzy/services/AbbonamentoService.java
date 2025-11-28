@@ -96,7 +96,7 @@ public class AbbonamentoService {
 
     public void inviaEmailScadenzaAbbonamenti() {
         LocalDate traTreGiorni = LocalDate.now().plusDays(3);
-        List<Abbonamento> inScadenza = abbonamentoRepository.findByDataScadenza(traTreGiorni);
+        List<Abbonamento> inScadenza = abbonamentoRepository.findByDataRinnovo(traTreGiorni);
 
         for (Abbonamento abb : inScadenza) {
             mailgunSender.sendBillingEmail(abb.getUser(), abb);
